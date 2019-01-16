@@ -10,7 +10,7 @@ config :musicapp, Musicapp.Repo,
   password: "postgres",
   hostname: "localhost"
 
-config :musicapp, cowboy_port: 4000
+config :musicapp, port: 4000
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

@@ -21,7 +21,7 @@ defmodule Musicapp.Endpoint do
     if is_nil(artist) do
       conn 
         |> put_resp_content_type("application/json")
-        |> send_resp(404, Jason.encode!(%{:error => "The artist with id "<>conn.path_params["id"]<>" does not exist"}))
+        |> send_resp(404, missing_artist(conn.path_params["id"]))
     else
       conn 
         |> put_resp_content_type("application/json")
@@ -46,13 +46,11 @@ defmodule Musicapp.Endpoint do
     if is_nil(artist) do
       conn 
         |> put_resp_content_type("application/json")
-        |> send_resp(404, Jason.encode!(%{:error => "The artist with id "<>conn.path_params["id"]<>" does not exist"}))
+        |> send_resp(404, missing_artist(conn.path_params["id"]))
     else
       Repo.delete(artist)
       conn 
-        |> put_resp_content_type("application/json")
-        |> put_status(204)
-        |> send_resp()
+        |> send_resp(204, "")
     end
   end
 
@@ -66,5 +64,9 @@ defmodule Musicapp.Endpoint do
     conn
       |> put_resp_content_type("application/json")
       |> send_resp(conn.status, Jason.encode!(%{:message => "Unexcepted error"}))
+  end
+
+  defp missing_artist(id) do 
+    Jason.encode!(%{:error => "The artist with id "<>id<>" does not exist"})
   end
 end
