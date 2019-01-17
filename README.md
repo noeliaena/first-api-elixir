@@ -39,11 +39,17 @@ The endpoints will be:
 -	POST      /api/albums
 -	DELETE   /api/albums/{id}
 
+### Filtering
+**TODO: Add description**
+
+### Pagination
+**TODO: Add description**
+
 ## Environment Setup
 
 We'll need to install:
-•	Elixir: installation guide.
-•	PostgreSQL: installation guide.
+- Elixir: installation guide.
+- PostgreSQL: installation guide.
 
 And following dependencies:
 •	Ecto: see documentation here.
