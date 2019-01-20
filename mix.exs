@@ -25,7 +25,7 @@ defmodule Musicapp.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:ecto_sql, "~> 3.0.4"},
       {:postgrex, "~> 0.14.1"},
-      {:jason, "~> 1.1"},
+      {:jason, "~> 1.1"}
     ]
   end
 end

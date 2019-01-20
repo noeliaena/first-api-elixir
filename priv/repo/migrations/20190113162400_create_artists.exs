@@ -3,7 +3,7 @@ defmodule Musicapp.Repo.Migrations.CreateArtists do
 
   def change do
     create table(:artists) do
-      add :name, :string
+      add(:name, :string)
       timestamps()
     end
   end

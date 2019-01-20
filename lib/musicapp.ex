@@ -1,18 +1,5 @@
 defmodule Musicapp do
   @moduledoc """
-  Documentation for Musicapp.
+  Musicapp provide information of music, such as albums and artist.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Musicapp.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

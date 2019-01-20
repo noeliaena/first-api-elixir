@@ -3,9 +3,9 @@ defmodule Musicapp.Repo.Migrations.CreateAlbums do
 
   def change do
     create table(:albums) do
-      add :title, :string
-      add :tracks, :integer
-      add :artist_id, references(:artists)
+      add(:title, :string)
+      add(:tracks, :integer)
+      add(:artist_id, references(:artists))
       timestamps()
     end
   end
