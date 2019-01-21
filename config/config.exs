@@ -3,16 +3,16 @@
 use Mix.Config
 
 # General application configuration
-config :musicapp, ecto_repos: [Musicapp.Repo]
+config :musicapi, ecto_repos: [MusicApi.Repo]
 
 # Database configuration
-config :musicapp, Musicapp.Repo,
+config :musicapi, MusicApi.Repo,
   database: "musicdb",
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
 
-config :musicapp, port: 4000
+config :musicapi, port: 4000
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

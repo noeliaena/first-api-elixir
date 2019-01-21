@@ -1,5 +1,5 @@
-defmodule Musicapp.Repo do
+defmodule MusicApi.Repo do
   use Ecto.Repo,
-    otp_app: :musicapp,
+    otp_app: :musicapi,
     adapter: Ecto.Adapters.Postgres
 end

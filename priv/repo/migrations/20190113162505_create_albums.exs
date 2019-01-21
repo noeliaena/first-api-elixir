@@ -1,4 +1,4 @@
-defmodule Musicapp.Repo.Migrations.CreateAlbums do
+defmodule MusicApi.Repo.Migrations.CreateAlbums do
   use Ecto.Migration
 
   def change do

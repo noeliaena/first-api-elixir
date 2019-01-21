@@ -1,8 +1,8 @@
-defmodule MusicappTest do
+defmodule MusicApiTest do
   use ExUnit.Case
-  doctest Musicapp
+  doctest MusicApi
 
   test "greets the world" do
-    assert Musicapp.hello() == :world
+    assert MusicApi.hello() == :world
   end
 end

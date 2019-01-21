@@ -1,4 +1,4 @@
-defmodule Musicapp.Schemas.Album do
+defmodule MusicApi.Schemas.Album do
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -11,7 +11,7 @@ defmodule Musicapp.Schemas.Album do
 
     timestamps()
 
-    belongs_to(:artist, Musicapp.Schemas.Artist)
+    belongs_to(:artist, MusicApi.Schemas.Artist)
   end
 
   def changeset(struct, params) do

@@ -1,9 +1,8 @@
-defmodule Musicapp.Managers.Artist do
+defmodule MusicApi.Managers.Artist do
   import Ecto.Query, warn: false
 
-  alias Musicapp.Queries.Artist, as: Query
-  alias Musicapp.Schemas.Artist
-  alias Musicapp.Repo
+  alias MusicApi.Schemas.Artist
+  alias MusicApi.Repo
 
   @doc """
   Returns the list of artists.

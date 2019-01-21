@@ -18,23 +18,28 @@ The endpoints will be:
 -	POST      /api/albums
 -	DELETE   /api/albums/{id}
 
-### Filtering
-**TODO: Add description**
-
-### Pagination
-**TODO: Add description**
-
 ## Environment Setup
 
 We'll need to install:
-- Elixir: installation guide.
-- PostgreSQL: installation guide.
+- Elixir
+  - Mac: `brew install elixir`
+  - Windows: [download the installer](https://elixir-lang.org/install.html#windows)
+  - Linux: [check your distribution and download the installer](https://elixir-lang.org/install.html#unix-and-unix-like)
+  
+- PostgreSQL
+  - Mac: [download Postgres.app](https://postgresapp.com/)
+  - Windows & Linux: [download](https://www.postgresql.org/download/)
 
 And following dependencies:
--	Ecto: see documentation here.
--	Plug: specification for composable modules between web applications and connection adapter for HTTP server Cowboy. See documentation here.
--	Cowboy: HTTP Server. See documentation here.
--	Jason: JSON implementation. See documentation here.
+-	Ecto: see documentation [here](http://hexdocs.pm/ecto).
+- Postgrex: adapter for Postgres. See documentation [here](hhttp://hexdocs.pm/postgrex).
+-	Plug: specification for composable modules between web applications and connection adapters. See documentation [here](http://hexdocs.pm/plug).
+-	Cowboy: HTTP Server. See documentation [here](http://hexdocs.pm/plug_cowboy).
+-	Jason: JSON implementation. See documentation [here](http://hexdocs.pm/jason).
 
+## Running it!
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
+  * Start endpoint with `mix run`
 
-
+You can try each service with Postman or curl in [localhost:4000](http://localhost:4000).

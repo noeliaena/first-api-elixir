@@ -1,9 +1,9 @@
-defmodule Musicapp.Endpoint do
+defmodule MusicApi.Endpoint do
   use Plug.Router
   use Plug.ErrorHandler
 
-  alias Musicapp.Managers.Album
-  alias Musicapp.Managers.Artist
+  alias MusicApi.Managers.Album
+  alias MusicApi.Managers.Artist
 
   plug(:match)
   plug(:dispatch)
@@ -35,7 +35,7 @@ defmodule Musicapp.Endpoint do
     IO.inspect(Jason.decode!(body))
 
     #new_artist =
-    #  Musicapp.Schemas.Artist.changeset(%Musicapp.Schemas.Artist{}, Jason.decode!(body))
+    #  MusicApi.Schemas.Artist.changeset(%MusicApi.Schemas.Artist{}, Jason.decode!(body))
     #  |> Repo.insert!()
 
     new_artist = Artist.create_artist(Jason.decode!(body))
@@ -65,7 +65,18 @@ defmodule Musicapp.Endpoint do
     #  params["title"] => "titulo 2"
     %{query_params: params} = Plug.Conn.fetch_query_params(conn)
 
-    albums = Album.list_albums
+    IO.inspect params["title"]
+
+    albums = 
+      if (params["title"]) do
+        Album.get_albums_by_title(String.downcase(params["title"]))
+      else 
+        Album.list_albums
+      end
+
+    #if (params["limit"]) do
+    #  albums |> limit(params["limit"]) 
+    #end
 
     conn
     |> put_resp_content_type("application/json")
@@ -90,9 +101,9 @@ defmodule Musicapp.Endpoint do
     {:ok, body, conn} = Plug.Conn.read_body(conn)
 
     #new_album =
-    #  Musicapp.Schemas.Album.changeset(%Musicapp.Schemas.Album{}, Jason.decode!(body))
-    #  |> Musicapp.Repo.preload(:artist)
-    #  |> Musicapp.Repo.insert!()
+    #  MusicApi.Schemas.Album.changeset(%MusicApi.Schemas.Album{}, Jason.decode!(body))
+    #  |> MusicApi.Repo.preload(:artist)
+    #  |> MusicApi.Repo.insert!()
     new_album = Album.create_album(Jason.decode!(body))
 
     conn

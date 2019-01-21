@@ -1,9 +1,9 @@
-defmodule Musicapp.MixProject do
+defmodule MusicApi.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :musicapp,
+      app: :musicapi,
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule Musicapp.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Musicapp.Application, []}
+      mod: {MusicApi.Application, []}
     ]
   end
 

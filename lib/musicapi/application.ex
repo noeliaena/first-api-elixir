@@ -1,4 +1,4 @@
-defmodule Musicapp.Application do
+defmodule MusicApi.Application do
   @moduledoc false
 
   use Application
@@ -8,17 +8,17 @@ defmodule Musicapp.Application do
     children = [
       {Plug.Cowboy,
        scheme: :http,
-       plug: Musicapp.Endpoint,
-       options: [port: Application.get_env(:musicapp, :port)]},
-      {Musicapp.Repo, []}
+       plug: MusicApi.Endpoint,
+       options: [port: Application.get_env(:musicapi, :port)]},
+      {MusicApi.Repo, []}
     ]
 
-    opts = [strategy: :one_for_one, name: Musicapp.Supervisor]
+    opts = [strategy: :one_for_one, name: MusicApi.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   Postgrex.Types.define(
-    Musicapp.PostgresTypes,
+    MusicApi.PostgresTypes,
     [] ++ Ecto.Adapters.Postgres.extensions(),
     json: Jason
   )
