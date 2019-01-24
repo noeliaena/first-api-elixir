@@ -34,10 +34,6 @@ defmodule MusicApi.Endpoint do
     {:ok, body, conn} = Plug.Conn.read_body(conn)
     IO.inspect(Jason.decode!(body))
 
-    #new_artist =
-    #  MusicApi.Schemas.Artist.changeset(%MusicApi.Schemas.Artist{}, Jason.decode!(body))
-    #  |> Repo.insert!()
-
     new_artist = Artist.create_artist(Jason.decode!(body))
 
     conn
@@ -61,26 +57,9 @@ defmodule MusicApi.Endpoint do
   end
 
   get "/api/albums" do
-    # En params tienes todos los parámetros de la query
-    #  params["title"] => "titulo 2"
-    %{query_params: params} = Plug.Conn.fetch_query_params(conn)
-
-    IO.inspect params["title"]
-
-    albums = 
-      if (params["title"]) do
-        Album.get_albums_by_title(String.downcase(params["title"]))
-      else 
-        Album.list_albums
-      end
-
-    #if (params["limit"]) do
-    #  albums |> limit(params["limit"]) 
-    #end
-
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(200, Jason.encode!(albums))
+    |> send_resp(200, Jason.encode!(Album.list_albums))
   end
 
   get "/api/albums/:id" do
@@ -100,10 +79,6 @@ defmodule MusicApi.Endpoint do
   post "/api/albums" do
     {:ok, body, conn} = Plug.Conn.read_body(conn)
 
-    #new_album =
-    #  MusicApi.Schemas.Album.changeset(%MusicApi.Schemas.Album{}, Jason.decode!(body))
-    #  |> MusicApi.Repo.preload(:artist)
-    #  |> MusicApi.Repo.insert!()
     new_album = Album.create_album(Jason.decode!(body))
 
     conn
