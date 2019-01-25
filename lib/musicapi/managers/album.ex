@@ -55,27 +55,6 @@ defmodule MusicApi.Managers.Album do
   @doc """
   Gets a single album by title.
 
-  Returns nil if the album does not exist.
-
-  ## Examples
-
-      iex> get_albums_by_title("sometitle")
-      %Album{}
-
-      iex> get_albums_by_title("sometitle")
-      nil
-
-  """
-  def get_albums_by_query(title, limit, offset) do
-    #query = 
-    #  if (title) do
-
-
-    from(a in Album, where: fragment("lower(?)", a.title) == ^title)
-    |> Repo.all()
-    |> Repo.preload([:artist])
-  end
-
   @doc """
   Creates an album.
 
