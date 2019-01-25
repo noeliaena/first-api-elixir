@@ -39,7 +39,7 @@ And following dependencies:
 
 ## Running it!
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start endpoint with `mix run`
+  * Create and migrate your database (check credentials on config.exs) with `mix ecto.create && mix ecto.migrate`
+  * Start endpoint with `mix run --no-halt`
 
 You can try each service with Postman or curl in [localhost:4000](http://localhost:4000).
