@@ -66,11 +66,7 @@ defmodule MusicApi.Managers.Album do
       nil
 
   """
-  def get_albums_by_query(title, limit, offset) do
-    #query = 
-    #  if (title) do
-
-
+  def get_albums_by_query(title) do
     from(a in Album, where: fragment("lower(?)", a.title) == ^title)
     |> Repo.all()
     |> Repo.preload([:artist])
@@ -90,8 +86,8 @@ defmodule MusicApi.Managers.Album do
   """
   def create_album(attrs \\ %{}) do
     %Album{}
-    |> Album.changeset(attrs)
     |> Repo.preload(:artist)
+    |> Album.changeset(attrs)
     |> Repo.insert!()
   end
 
